@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Tailwindcss local-->
+    <link rel="stylesheet" href="stylesheets/tailwin-style.css"/>
+    <!-- Tailwindcss link-->
+    <!-- <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet"> -->
+
+    <!-- Custom styling -->
+    <style>
+      .selected {
+        border: 1px solid rgb(20, 15, 15);
+      }
+      .selected:hover{
+        color: #ffff;
+        background-color: rgb(83, 79, 79);
+        transition: 1s;
+      }
+    </style>
+    <title>iMac with Apple M1 chip</title>
+  </head>
+  <body>
+    <main>
+      <div class="container mx-auto px-4 md:px-2">
+        <div class="grid grid-cols-2">
+          <!--iMac Image -->
+          <div class="p-5 border rounded border-gray-200 m-5">
+            <div class="h-96 w-full">
+              <img
+                src="images/mac.png"
+                id="art"
+                class="w-full rounded object-cover"
+                alt=""
+              />
+            </div>
+          </div>
+          <!-- Cart Title -->
+          <div class="mt-10 max-w-lg mx-auto">
+            <h1 class="text-4xl font-semibold py-2">Customise your Blue 24‑inch</h1>
+            <h1 class="text-4xl font-semibold py-2">iMac with Apple M1 chip.</h1>
+            <span id="desc" class="text-lg text-gray-700">Apple M1 chip with 8-core CPU with 4 performance cores and 4 efficiency cores, 7-core GPU, and 16-core Neural Engine.Magic Keyboard with Touch ID and Magic Keyboard with Touch ID and Numeric Keypad are available.</span>
+            <!-- Memory Button -->
+            <div class="pt-10">
+              <h4 class="text-2xl font-semibold py-4">Memory</h4>
+              <button id="free-memory"  class="p-2 border border-gray-400 shadow hover:shadow-lg rounded text-xl">8GB unified memory</button>
+              <button id="prime-memory" class="p-2 border border-gray-400 shadow hover:shadow-lg rounded text-xl">16GB unified memory</button>
+            </div>
+            <!-- Storage Button -->
+            <div class="pt-10">
+              <h4 class="text-2xl font-semibold py-">Storage</h4>
+              <div class="flex justify-center  mt-5 grid gap-2 grid-cols-3">
+                <button id="free-store" class="p-2  border border-gray-400 shadow hover:shadow-lg rounded text-xl">256GB SSD storage</button>
+                <button id="prime-store" class="p-2 border border-gray-400 shadow hover:shadow-lg rounded text-xl">512GB SSD storage</button>
+                <button id="big-store" class="p-2 border border-gray-400 shadow hover:shadow-lg rounded text-xl">1TB SSD storage</button>
+              </div>
+            </div>
+            <!-- Delivery Options Button -->
+            <div class="pt-10">
+              <h4 class="text-2xl font-semibold py-">Choose your delivery options</h4>
+              <div class="flex justify-center  mt-5 grid gap-2 grid-cols-2">
+                <button id="free-delivery" class="px-2  border border-gray-400 shadow hover:shadow-lg rounded text-xl">Wednesday, Aug 25, Free Prime Delivery</button>
+                <button id="express-delivery" class="p-2 border border-gray-400 shadow hover:shadow-lg rounded text-xl">Saturday, Aug 21, Delivery charge $20</button>
+              </div>
+            </div>
+
+            <!-- Order summary -->
+            <div id="summary" class="w-1/1 px-8 py-8">
+              <h1 class="font-semibold text-2xl border-b pb-8">Order Summary</h1>
+              <div class="flex justify-between items-center mt-10 mb-5">
+                <span class="font-semibold text-sm uppercase">Best Price</span>
+                <span class="ml-80 font-semibold">$</span><span id="best-rice" class="font-semibold text-sm">1299</span>
+              </div>
+              <div class="flex justify-between mt-10 mb-5 items-center border-t">
+                <span class="font-semibold text-sm uppercase">Extra Memory Cost</span>
+                <span class="ml-80 font-semibold">$</span><span id="memory" class="font-semibold text-sm">0</span>
+              </div>
+              <div class="flex justify-between mt-10 mb-5 items-center border-t">
+                <span class="font-semibold text-sm uppercase">Extra Storage Cost</span>
+                <span class="ml-80 font-semibold">$</span><span id="store" class="font-semibold text-sm">0</span>
+              </div>
+              <div class="flex justify-between mt-8 mb-5 items-center  border-b-2 border-gray-600">
+                <span class="font-semibold text-sm uppercase">Delivery charge</span>
+                <span class="ml-80 font-semibold">$</span><span id="shipping" class="font-semibold text-sm">0</span>
+              </div>
+              <div class="flex justify-between mt-2 mb-5 items-center">
+                <span class="font-semibold text-sm uppercase">Total</span>
+                <span class="ml-80 font-semibold">$</span><span id="total" class="font-semibold text-sm">1299</span>
+              </div>
+                <!-- ----------Promo Code----------- -->
+              <div class="py-5">
+                <label for="promo" class="font-semibold inline-block mb-3 text-sm uppercase">Add Promo Code</label>
+                <input type="text" id="discount_code1" placeholder="Enter the discount code" class="p-2 text-sm w-full">
+                <small id="error_trw" class="mt-5 text-green-500 hidden">Hurry!! Promo Code is valid!</small>
+                <small id="error_trw-faild" class="text-dark mt-5 text-green-500 hidden">Opps!! Please Valid Promo Code: stevekaku</small>
+              </div>
+              <button onclick="discount_code()" class="bg-red-500 hover:bg-red-600 px-5 py-2 text-sm text-white uppercase">Apply</button>
+              <div class="border-t mt-8">
+                <div class="flex font-semibold justify-between py-6 text-sm uppercase">
+                  <span>Total Cost</span>
+                  <span class="ml-80 font-semibold">$</span><span id="grand-total" class="font-semibold text-sm">1299</span>
+                
+                </div>
+                <button class="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full">Buy Now</button>
+              </div>
+         </div>
+    </main>
+    <!-- Custom js -->
+    <script src="js/mac-cart.js"></script>
+  </body>
+</html>
